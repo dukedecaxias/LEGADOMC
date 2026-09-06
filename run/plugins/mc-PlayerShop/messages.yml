@@ -1,0 +1,121 @@
+prefix: '&#FF8A65[PlayerShop]'
+
+messages:
+  reload: '%prefix% &aRecarregado!'
+  update-available: '%prefix% &a  Uma nova versão está disponível! &7(&c{current} &7→ &a{new}&7)'
+  no-permission: '%prefix% &cVocê não tem permissão!'
+  player-required: '%prefix% &cApenas jogadores podem usar isso!'
+  player-not-found: '%prefix% &cJogador não encontrado!'
+  missing-argument: '%prefix% &cArgumento ausente!'
+  
+  shop:
+    storage-not-empty: '%prefix% &cO armazenamento deve estar vazio para trocar o modo!'
+    storage-not-empty-simple: '%prefix% &cO armazenamento deve estar vazio!'
+    
+    admin-deleted: '%prefix% &aVocê excluiu a loja de &e{owner}&a!'
+    admin-delete-confirm: '%prefix% &c&lATENÇÃO! &7Esta loja pertence a &e{owner}&7! Repita a ação em até &e{seconds}s &7para excluí-la permanentemente.'
+    admin-delete-no-target: '%prefix% &cVocê não está olhando para uma loja de jogador!'
+    deleted: '%prefix% &aLoja excluída!'
+    
+    transaction-success: '%prefix% &aTransação concluída: &e{amount}x {item} &apor &e{price} &ade &e{owner}'
+    transaction-failed: '%prefix% &cA transação falhou!'
+    
+    owner-notify:
+      buy: '&e{player} &acomprou &e{amount}x {item} &apor &e{price}{currency} &ada sua loja'
+      sell: '&e{player} &cvendeu &e{amount}x {item} &cpor &e{price}{currency} &cpara sua loja'
+    
+    errors:
+      block-content-not-empty: '%prefix% &cO bloco deve estar vazio para criar uma loja!'
+      double-chest: '%prefix% &cVocê não pode criar uma loja em um baú duplo!'
+      not-enough-money: '%prefix% &cVocê não tem dinheiro suficiente!'
+      not-enough-items: '%prefix% &cVocê não tem itens suficientes!'
+      inventory-full: '%prefix% &cSeu inventário está cheio!'
+      storage-full: '%prefix% &cO armazenamento da loja está cheio!'
+      owner-no-money: '%prefix% &cO dono da loja não tem dinheiro!'
+      shop-empty: '%prefix% &cA loja está sem estoque!'
+      invalid-amount: '%prefix% &cQuantidade inválida!'
+    
+    currency-updated: '%prefix% &aMoeda atualizada para: &e{currency}'
+    currency-no-permission: '%prefix% &cVocê não tem permissão para usar &e{currency}&c!'
+    limit-reached: '%prefix% &cVocê atingiu o limite de lojas! (&e{current}/{limit}&c)'
+    
+    listing:
+      enabled: '%prefix% &aSua loja agora está visível em &e/playershop search&a!'
+      disabled: '%prefix% &7Sua loja agora está oculta da busca.'
+    
+    visit:
+      set: '%prefix% &aOs visitantes chegarão em &e{x}, {y}, {z}&a.'
+      reset: '%prefix% &aPonto de visita removido; um local seguro próximo à loja será escolhido automaticamente.'
+      too-far: '%prefix% &cFique a até &e{distance} &cblocos da sua loja para definir o ponto de visita! (&e{current}&c)'
+      wrong-world: '%prefix% &cVocê precisa estar no mesmo mundo da sua loja!'
+      unsafe: '%prefix% &cEste local não é seguro para visitantes. Tente outro!'
+    
+    mode:
+      buy: '&#7CF6FFComprando'
+      sell: '&#FF7C7CVendendo'
+    
+    price:
+      invalid-number: '%prefix% &cNúmero inválido!'
+      negative: '%prefix% &cO preço deve ser maior ou igual a 0!'
+      too-large: '%prefix% &cO preço é muito alto!'
+      updated: '%prefix% &aPreço atualizado para: &e{price}'
+  
+  search:
+    disabled: '%prefix% &cA busca de lojas está desativada!'
+    too-short: '%prefix% &cDigite pelo menos &e{min} &ccaracteres!'
+    searching: '%prefix% &7Buscando por &f{query}&7...'
+    no-results: '%prefix% &cNenhuma loja listada negocia &e{query}&c!'
+    all-unavailable: '%prefix% &e{amount} &cloja(s) negociam &e{query}&c, mas nenhuma pode negociar agora (estoque vazio / armazenamento cheio).'
+    results: '%prefix% &aEncontradas &e{amount} &aloja(s).'
+  
+  teleport:
+    disabled: '%prefix% &cO teleporte para lojas está desativado!'
+    warmup: '%prefix% &7Teleportando em &e{seconds}s&7, não se mova!'
+    cancelled: '%prefix% &cTeleporte cancelado!'
+    cooldown: '%prefix% &cAguarde &e{seconds}s &cantes de se teleportar novamente!'
+    success: '%prefix% &aVocê foi teleportado para a loja de &e{owner}&a!'
+    protection: '%prefix% &7Você não pode sofrer dano por &e{seconds}s&7; atacar encerra a proteção.'
+    no-safe-location: '%prefix% &cNão foi possível encontrar um local seguro próximo a essa loja!'
+    shop-gone: '%prefix% &cEssa loja não está mais disponível!'
+    world-not-loaded: '%prefix% &cO mundo dessa loja não está carregado!'
+    world-blacklisted: '%prefix% &cVocê não pode se teleportar para esse mundo!'
+    failed: '%prefix% &cO teleporte falhou!'
+  
+  island:
+    locked: '%prefix% &cEssa ilha está fechada!'
+    banned: '%prefix% &cVocê está banido dessa ilha!'
+  
+  dialog:
+    price:
+      title: '&#B8FFF2Definir preço'
+      body:
+      - '&#7A8592Digite o preço'
+      - '&#7A8592Exemplo: 10.5'
+      input: '&#C7D0D9Preço'
+    
+    confirm: '&#7CF6FFConfirmar'
+    confirm-lore: '&#C7D0D9Clique para confirmar'
+    
+    cancel: '&#7A8592Cancelar'
+    cancel-lore: '&#C7D0D9Fechar'
+  
+  time:
+    day: dia
+    day-plural: dias
+    
+    hour: hora
+    hour-plural: horas
+    
+    minute: minuto
+    minute-plural: minutos
+    
+    second: segundo
+    second-plural: segundos
+    
+    short:
+      day: d
+      hour: h
+      minute: m
+      second: s
+
+version: '9'

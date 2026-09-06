@@ -1,0 +1,157 @@
+database:
+  # H2, MySQL
+  type: h2
+  
+  mysql:
+    host: localhost
+    port: 3306
+    database: database
+    username: username
+    password: password
+  
+  pool:
+    maximumPoolSize: 10
+    minimumIdle: 5
+    connectionTimeout: 30000
+    maxLifetime: 1800000
+    idleTimeout: 600000
+    setLeakDetectionThreshold: 60000
+    useSSL: false
+
+shop:
+  # Which block types can be turned into a player shop.
+  # Any block material works, not just containers - the shop stock is stored
+  # in the database, not inside the physical block.
+  #
+  # If the block has its own inventory (BARREL, CHEST, SHULKER_BOX, ...) it must
+  # be empty at creation, otherwise the items inside would become inaccessible.
+  # Barrels are automatically rotated to face up when used as a shop.
+  blocks:
+  - BARREL
+
+storage:
+  max-items: 1000
+
+search:
+  enabled: true
+  
+  # Whether a freshly created shop is listed in the search right away.
+  listed-by-default: true
+  
+  # Hard cap on how many shops a single search may show.
+  max-results: 200
+  
+  # Shorter queries are rejected, so '/playershop search a' cannot scan everything.
+  min-query-length: 2
+  
+  # Hide shops that cannot trade right now (SELL shops without stock,
+  # BUY shops with a full storage).
+  hide-unavailable: true
+  
+  # Which shops the menu shows when it opens: SELL, BUY or ALL.
+  # Players can cycle this in the menu.
+  default-filter: SELL
+  
+  # PRICE_LOW, PRICE_HIGH, STOCK or DISTANCE
+  default-sort: PRICE_LOW
+  
+  visit-point:
+    # How far the owner's custom visit point may be from the shop block.
+    # Keeps owners from sending visitors into a pit on the other side of the map.
+    max-distance: 10
+  
+  teleport:
+    enabled: true
+    
+    # Seconds the player has to stand still before being teleported (0 = instant).
+    # Shop owners always teleport to their own shops instantly.
+    warmup: 3
+    
+    # Seconds a player has to wait between two shop teleports.
+    cooldown: 5
+    
+    # Seconds of damage immunity right after arriving. This is the main
+    # anti-trap net: even a perfectly built trap cannot kill the visitor
+    # before they can walk away. Attacking someone ends it immediately.
+    protection: 5
+    
+    cancel-on-move: true
+    cancel-on-damage: true
+    
+    # Players can never be teleported into these worlds.
+    blacklisted-worlds: []
+    
+    # Every teleport target is validated against these rules right before the
+    # teleport happens, so a spot that was safe when it was set but has been
+    # turned into a trap since is rejected.
+    safety:
+      # Biggest allowed drop under the target before it counts as unsafe.
+      max-fall: 3
+      
+      # How far around the shop block a safe spot is looked for when the shop has
+      # no visit point, or when the visit point turned out to be unsafe.
+      search-radius: 4
+      
+      # Reject spots that are completely walled in (the classic
+      # 'teleport into a sealed 1x2 box' trap).
+      require-escape: true
+      
+      # Reject spots that are inside water or any other liquid.
+      allow-liquids: false
+      
+      # A spot is unsafe when one of these is right next to it.
+      dangerous-blocks:
+      - LAVA
+      - FIRE
+      - SOUL_FIRE
+      - CAMPFIRE
+      - SOUL_CAMPFIRE
+      - MAGMA_BLOCK
+      - CACTUS
+      - SWEET_BERRY_BUSH
+      - POWDER_SNOW
+      - WITHER_ROSE
+      - END_PORTAL
+      - NETHER_PORTAL
+      - LAVA_CAULDRON
+
+hologram:
+  offset-y: 1.2
+  
+  item:
+    offset-y: 1.05
+    scale: 0.3
+  
+  text:
+    shadow: true
+    billboard: VERTICAL
+    
+    background:
+      enabled: false
+      color: TRANSPARENT # TRANSPARENT or HEX color
+    
+    lines:
+    - '&7{owner}'
+    - '&f{item}'
+    - '{shop_mode} &8◆ &a{price}{currency_prefix}'
+
+formatting:
+  # CLOCK_DD_HH_MM_SS -> 01:12:30:45 (days:hours:minutes:seconds)
+  # CLOCK_HH_MM_SS -> 36:30:45 (total hours:minutes:seconds)
+  # CLOCK_MM_SS -> 2190:45 (total minutes:seconds)
+  #
+  # WORDS_FULL -> 1 day 12 hours 30 minutes 45 seconds
+  # WORDS_COMPACT -> 1d 12h 30m 45s
+  #
+  # HOURS_ONLY -> 36h
+  # MINUTES_ONLY -> 2190m
+  # SECONDS_ONLY -> 131445s
+  time-format: WORDS_COMPACT
+  amount-format: COMPACT
+
+update-checker:
+  # Periodically checks SpigotMC for a new version (every 30 minutes) and
+  # notifies the console + online admins with the 'playershop.update-notify' permission.
+  enabled: true
+
+version: '3'

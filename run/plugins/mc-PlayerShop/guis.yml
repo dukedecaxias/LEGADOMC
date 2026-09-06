@@ -1,0 +1,589 @@
+shop-main:
+  title: '&8Controle da loja'
+  size: 36
+  tick: 0
+  
+  sounds:
+    open: minecraft:block.chest.open
+    error: minecraft:block.note_block.bass
+    action: minecraft:entity.experience_orb.pickup
+  
+  sell-mode:
+    material: BELL
+    name: '&#FFD166Modo: Venda'
+    lore:
+    - '&#7A8592Alternar entre os modos COMPRA e VENDA'
+    - ''
+    - '&#C7D0D9» Clique esquerdo: &#FFFFFFAlternar modo'
+    slot:
+    - 10
+  
+  buy-mode:
+    material: BELL
+    name: '&#FFD166Modo: Compra'
+    lore:
+    - '&#7A8592Alternar entre os modos COMPRA e VENDA'
+    - ''
+    - '&#C7D0D9» Clique esquerdo: &#FFFFFFAlternar modo'
+    slot:
+    - 10
+  
+  listed:
+    material: SPYGLASS
+    name: '&#70EF5CVisível na busca'
+    lore:
+    - '&#7A8592Jogadores podem encontrar e visitar esta loja'
+    - '&#7A8592usando &f/playershop search'
+    - ''
+    - ' &#D3DBE3◆ Status: &#70EF5CVisível'
+    - ''
+    - '&#C7D0D9» Clique esquerdo: &#FFFFFFOcultar loja'
+    slot:
+    - 11
+  
+  unlisted:
+    material: SPYGLASS
+    name: '&#FF7C7COculta da busca'
+    lore:
+    - '&#7A8592Ninguém pode encontrar ou se teleportar para'
+    - '&#7A8592esta loja; ela continua funcionando normalmente'
+    - ''
+    - ' &#D3DBE3◆ Status: &#FF7C7COculta'
+    - ''
+    - '&#C7D0D9» Clique esquerdo: &#FFFFFFListar loja'
+    slot:
+    - 11
+  
+  items:
+    visit-point:
+      slot: 15
+      material: COMPASS
+      name: '&#7CF6FFPonto de visita'
+      lore:
+      - '&#7A8592Onde os visitantes chegam ao'
+      - '&#7A8592se teleportarem para esta loja'
+      - ''
+      - ' &#D3DBE3◆ Atual: &#FFFFFF{visit}'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFDefinir onde você está'
+      - '&#C7D0D9» Clique direito: &#FFFFFFVoltar ao automático'
+    
+    price-change:
+      slot: 12
+      material: RESIN_CLUMP
+      name: '&#F4A261Editor de preço'
+      lore:
+      - '&#7A8592Ajustar o preço do item'
+      - ''
+      - ' &#D3DBE3◆ Atual: &#FFFFFF{price}'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFAlterar preço'
+    
+    storage:
+      material: SCAFFOLDING
+      slot: 13
+      name: '&#64DFDFArmazenamento'
+      lore:
+      - '&#7A8592Gerenciar itens armazenados'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFAbrir armazenamento'
+    
+    currency:
+      slot: 14
+      material: LARGE_AMETHYST_BUD
+      name: '&#C77DFFMoeda'
+      lore:
+      - '&#7A8592Selecionar a moeda da loja'
+      - ''
+      - ' &#D3DBE3◆ Atual: &#FFFFFF{currency}'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFAlterar moeda'
+    
+    transactions:
+      material: GLOW_ITEM_FRAME
+      slot: 16
+      name: '&#F6C177Transações'
+      lore:
+      - '&#7A8592Ver atividade recente'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFAbrir histórico'
+    
+    close:
+      material: IRON_DOOR
+      slot: 31
+      name: '&#FF6B6BSair do menu'
+      lore:
+      - '&#7A8592Fechar esta interface'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFFechar menu'
+    
+    filler:
+      material: GRAY_STAINED_GLASS_PANE
+      name: '&f'
+      slot:
+      - 27
+      - 28
+      - 29
+      - 30
+      - 32
+      - 33
+      - 34
+      - 35
+  
+  states:
+    visit-automatic: '&#7A8592Automático'
+    visit-custom: '&#FFFFFF{x}, {y}, {z}'
+
+shop-transactions:
+  title: '&8Transações'
+  size: 54
+  tick: 0
+  
+  transaction-slots: grid:7x3:1
+  
+  sounds:
+    open: minecraft:block.chest.open
+    error: minecraft:block.note_block.bass
+    action: minecraft:ui.button.click
+    page: minecraft:item.book.page_turn
+  
+  items:
+    filler:
+      material: GRAY_STAINED_GLASS_PANE
+      name: '&f'
+      slot:
+      - 45
+      - 46
+      - 47
+      - 51
+      - 52
+      - 53
+    
+    back:
+      material: IRON_DOOR
+      slot: 45
+      name: '&#C7D0D9Voltar'
+      lore:
+      - '&#7A8592Voltar ao menu da loja'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFVoltar'
+    
+    previous:
+      material: ARROW
+      slot: 48
+      name: '&#C7D0D9Página anterior'
+      lore:
+      - '&#7A8592Ir para a página anterior'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFAnterior'
+    
+    next:
+      material: ARROW
+      slot: 50
+      name: '&#C7D0D9Próxima página'
+      lore:
+      - '&#7A8592Ir para a próxima página'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFPróxima'
+    
+    page-info:
+      material: BOOK
+      slot: 49
+      name: '&#B8FFF2Página &#FFFFFF{page}&#7A8592/&#FFFFFF{max}'
+      lore:
+      - '&#7A8592Visualizando transações'
+    
+    transaction-item:
+      material: PAPER
+      name: '&#8FA3B8Transação'
+      lore:
+      - ' &#D3DBE3◆ Jogador: &#FFFFFF{player}'
+      - ' &#D3DBE3◆ Quantidade: &#FFFFFF{amount}'
+      - ' &#D3DBE3◆ Preço: &#FFFFFF{price}'
+      - ' &#D3DBE3◆ Tipo: &#FFFFFF{type}'
+      - ' &#D3DBE3◆ Horário: &#FFFFFF{time}'
+    
+    empty:
+      material: BARRIER
+      slot: 22
+      name: '&#F4A261Nenhuma transação'
+      lore:
+      - '&#7A8592Ainda não há transações'
+
+shop-storage:
+  title: '&8Armazenamento da loja'
+  size: 54
+  tick: 0
+  
+  storage-slots:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 26
+  - 27
+  - 28
+  - 29
+  - 30
+  - 31
+  - 32
+  - 33
+  - 34
+  - 35
+  - 36
+  - 37
+  - 38
+  - 39
+  - 40
+  - 41
+  - 42
+  - 43
+  - 44
+  
+  sounds:
+    open: minecraft:block.chest.open
+    error: minecraft:block.note_block.bass
+    action: minecraft:entity.item.pickup
+  
+  items:
+    filler:
+      material: GRAY_STAINED_GLASS_PANE
+      name: '&f'
+      slot:
+      - 46
+      - 47
+      - 48
+      - 49
+      - 50
+      - 51
+      - 52
+      - 53
+    back:
+      material: IRON_DOOR
+      slot: 45
+      name: '&#C7D0D9Voltar'
+      lore:
+      - '&#7A8592Voltar ao menu da loja'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFVoltar'
+
+shop-currency:
+  title: '&8Moeda da loja'
+  size: 27
+  tick: 0
+  
+  currency-slots: grid:7x2:1
+  
+  sounds:
+    open: minecraft:block.chest.open
+    error: minecraft:block.note_block.bass
+    action: minecraft:entity.experience_orb.pickup
+  
+  items:
+    back:
+      material: IRON_DOOR
+      slot: 18
+      name: '&#C7D0D9Voltar'
+      lore:
+      - '&#7A8592Voltar ao menu da loja'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFVoltar'
+    
+    currency-template:
+      material: RAW_GOLD
+      name: '&#8FA3B8{currency}'
+      lore:
+      - ''
+      - ' &#D3DBE3◆ Prefixo: &#FFFFFF{prefix}'
+      - ''
+      - '{selected}'
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFSelecionar'
+    
+    filler:
+      material: GRAY_STAINED_GLASS_PANE
+      name: '&f'
+      slot:
+      - 19
+      - 20
+      - 21
+      - 22
+      - 23
+      - 24
+      - 25
+      - 26
+  
+  states:
+    selected: '&#7CF6FF✔ Selecionada'
+    not-selected: '&#7A8592Não selecionada'
+    no-permission: '&#FF7C7C✖ Sem permissão'
+
+shop-trade:
+  title: '&8Negociação'
+  size: 36
+  tick: 0
+  
+  sounds:
+    open: minecraft:block.chest.open
+    error: minecraft:block.note_block.bass
+    action: minecraft:entity.player.levelup
+    modify: minecraft:ui.button.click
+  
+  max-amount: 2304
+  
+  steps:
+    add-1: 1
+    add-10: 10
+    add-64: 64
+    
+    remove-1: 1
+    remove-10: 10
+    remove-64: 64
+  
+  items:
+    add-1:
+      material: LIME_DYE
+      slot: 10
+      name: '&#70EF5C+1'
+      lore:
+      - ''
+      - ' &#D3DBE3◆ Quantidade: &#FFFFFF{amount}'
+      - ' &#D3DBE3◆ Máximo: &#FFFFFF{max}'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFAdicionar'
+    
+    add-10:
+      material: LIME_DYE
+      slot: 11
+      name: '&#70EF5C+10'
+      lore:
+      - ''
+      - ' &#D3DBE3◆ Quantidade: &#FFFFFF{amount}'
+      - ' &#D3DBE3◆ Máximo: &#FFFFFF{max}'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFAdicionar'
+    
+    add-64:
+      material: LIME_DYE
+      slot: 12
+      name: '&#70EF5C+64'
+      lore:
+      - ''
+      - ' &#D3DBE3◆ Quantidade: &#FFFFFF{amount}'
+      - ' &#D3DBE3◆ Máximo: &#FFFFFF{max}'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFAdicionar'
+    
+    remove-1:
+      material: RED_DYE
+      slot: 14
+      name: '&#FF7C7C-1'
+      lore:
+      - ''
+      - ' &#D3DBE3◆ Quantidade: &#FFFFFF{amount}'
+      - ' &#D3DBE3◆ Máximo: &#FFFFFF{max}'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFRemover'
+    
+    remove-10:
+      material: RED_DYE
+      slot: 15
+      name: '&#FF7C7C-10'
+      lore:
+      - ''
+      - ' &#D3DBE3◆ Quantidade: &#FFFFFF{amount}'
+      - ' &#D3DBE3◆ Máximo: &#FFFFFF{max}'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFRemover'
+    
+    remove-64:
+      material: RED_DYE
+      slot: 16
+      name: '&#FF7C7C-64'
+      lore:
+      - ''
+      - ' &#D3DBE3◆ Quantidade: &#FFFFFF{amount}'
+      - ' &#D3DBE3◆ Máximo: &#FFFFFF{max}'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFRemover'
+    
+    confirm:
+      material: TURTLE_SCUTE
+      slot: 13
+      name: '&#70EF5CConfirmar'
+      lore:
+      - ''
+      - ' &#D3DBE3◆ Quantidade: &#FFFFFF{amount}'
+      - ' &#D3DBE3◆ Unitário: &#FFFFFF{price_each}'
+      - ' &#D3DBE3◆ Total: &#FFFFFF{price_total}'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFConfirmar'
+    
+    close:
+      material: IRON_DOOR
+      slot: 31
+      name: '&#FF6B6BSair do menu'
+      lore:
+      - '&#7A8592Fechar esta interface'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFFechar menu'
+    
+    filler:
+      material: GRAY_STAINED_GLASS_PANE
+      name: '&f'
+      slot:
+      - 27
+      - 28
+      - 29
+      - 30
+      - 32
+      - 33
+      - 34
+      - 35
+
+shop-search:
+  title: '&8Lojas: {query}'
+  size: 54
+  tick: 0
+  
+  result-slots: grid:9x5:0
+  
+  sounds:
+    open: minecraft:block.chest.open
+    error: minecraft:block.note_block.bass
+    action: minecraft:ui.button.click
+    page: minecraft:item.book.page_turn
+    teleport: minecraft:entity.enderman.teleport
+  
+  items:
+    result:
+      material: PAPER
+      name: '&#B8FFF2{item}'
+      lore:
+      - ''
+      - ' &#D3DBE3◆ Dono: &#FFFFFF{owner}'
+      - ' &#D3DBE3◆ Modo: &#FFFFFF{mode}'
+      - ' &#D3DBE3◆ Preço: &#FFFFFF{price}{currency_prefix} &#7A8592/ unidade'
+      - ' &#D3DBE3◆ Estoque: &#FFFFFF{stock}'
+      - ' &#D3DBE3◆ Localização: &#FFFFFF{world} {x}, {y}, {z}'
+      - ' &#D3DBE3◆ Distância: &#FFFFFF{distance}'
+      - ''
+      - '{status}'
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFTeleportar para lá'
+    
+    filler:
+      material: GRAY_STAINED_GLASS_PANE
+      name: '&f'
+      slot:
+      - 45
+      - 51
+      - 53
+    
+    previous:
+      material: ARROW
+      slot: 48
+      name: '&#C7D0D9Página anterior'
+      lore:
+      - '&#7A8592Ir para a página anterior'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFAnterior'
+    
+    next:
+      material: ARROW
+      slot: 50
+      name: '&#C7D0D9Próxima página'
+      lore:
+      - '&#7A8592Ir para a próxima página'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFPróxima'
+    
+    page-info:
+      material: BOOK
+      slot: 49
+      name: '&#B8FFF2Página &#FFFFFF{page}&#7A8592/&#FFFFFF{max}'
+      lore:
+      - ' &#D3DBE3◆ Busca: &#FFFFFF{query}'
+      - ' &#D3DBE3◆ Resultados: &#FFFFFF{results}'
+    
+    filter:
+      material: HOPPER
+      slot: 46
+      name: '&#F6C177Filtro'
+      lore:
+      - '&#7A8592Quais lojas são exibidas'
+      - ''
+      - ' &#D3DBE3◆ Atual: &#FFFFFF{filter}'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFPróximo filtro'
+    
+    sort:
+      material: COMPARATOR
+      slot: 47
+      name: '&#C77DFFOrdenação'
+      lore:
+      - '&#7A8592Como os resultados são ordenados'
+      - ''
+      - ' &#D3DBE3◆ Atual: &#FFFFFF{sort}'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFPróxima ordem'
+    
+    close:
+      material: IRON_DOOR
+      slot: 52
+      name: '&#FF6B6BSair do menu'
+      lore:
+      - '&#7A8592Fechar esta interface'
+      - ''
+      - '&#C7D0D9» Clique esquerdo: &#FFFFFFFechar menu'
+    
+    empty:
+      material: BARRIER
+      slot: 22
+      name: '&#F4A261Nada encontrado'
+      lore:
+      - '&#7A8592Nenhuma loja listada negocia &f{query}'
+      - '&#7A8592Tente uma busca menor ou outro filtro'
+  
+  states:
+    available: '&#70EF5C✔ Disponível'
+    out-of-stock: '&#F4A261✖ Sem estoque'
+    storage-full: '&#F4A261✖ Armazenamento cheio'
+    island-locked: '&#FF7C7C✖ Ilha fechada'
+    other-world: '&#7A8592◆ Outro mundo'
+  
+  filters:
+    SELL: Vendendo
+    BUY: Comprando
+    ALL: Tudo
+  
+  sorts:
+    PRICE_LOW: Mais baratos primeiro
+    PRICE_HIGH: Mais caros primeiro
+    STOCK: Maior estoque primeiro
+    DISTANCE: Mais próximos primeiro
+  
+  unknown-distance: ???
+  browse-label: Todas as lojas
+
+version: '3'

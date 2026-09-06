@@ -1,0 +1,72 @@
+hooks:
+  integrations:
+    # Hooks into Advanced Slime Paper / SlimeWorld to load shops in slime worlds
+    # once they are loaded.
+    # Automatically disabled if the API is not present.
+    slimeworld:
+      enabled: true
+    
+    # Makes shop teleports play by the island plugin's rules.
+    # Automatically disabled if SuperiorSkyblock2 is not installed.
+    superiorskyblock:
+      enabled: true
+      
+      # Players cannot be teleported to shops on a closed island.
+      # Members, coops and everyone holding the CLOSE_BYPASS island privilege
+      # (plus SSB admins in bypass mode) still get through.
+      respect-locked-islands: true
+      
+      # Players cannot be teleported to islands they are banned from.
+      respect-bans: true
+  
+  currency:
+    default: vault
+    
+    providers:
+      vault:
+        enabled: true
+      coinsengine:
+        enabled: true
+      playerpoints:
+        enabled: true
+    
+    # Every currency has its own permission, players can only switch their shop
+    # to a currency they have the permission for.
+    # If 'permission' is not set, it defaults to: mcplayershop.currency.<id>
+    # Set it to '' (empty) to let everyone use that currency.
+    # 'mcplayershop.admin.bypass' grants access to every currency.
+    currencies:
+      vault:
+        provider: vault
+        permission: ''
+        display-name: '&aMoedas'
+        prefix: $
+        item:
+          material: GOLD_NUGGET
+          name: '&#B8FFF2Coins'
+          lore:
+          - ''
+          - ' &#D3DBE3◆ Moeda: &#FFFFFF{currency}'
+          - ' &#D3DBE3◆ Prefixo: &#FFFFFF{prefix}'
+          - ''
+          - '{selected}'
+          - '&#C7D0D9» Clique esquerdo: &#FFFFFFSelecionar'
+      playerpoints:
+        provider: playerpoints
+        permission: mcplayershop.currency.playerpoints
+        display-name: '&bPontos'
+        prefix: 🔥
+      gems:
+        provider: coinsengine
+        currency-id: gems
+        permission: mcplayershop.currency.gems
+        display-name: '&bGemas'
+        prefix: ♦
+      tokens:
+        provider: coinsengine
+        currency-id: tokens
+        permission: mcplayershop.currency.tokens
+        display-name: '&eTokens'
+        prefix: ✦
+
+version: '3'
